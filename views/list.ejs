@@ -1,0 +1,166 @@
+<html>
+    <body>
+        <style>
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+            html {
+  /* background-color: #E4E9FD; */
+
+  /* background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  background: linear-gradient(to top, #e6b980 0%, #eacda3 100%); */
+  background: linear-gradient(44.8deg, rgba(255, 136, 102, 0.67) -53.1%, rgba(255, 221, 136, 0.28) 49%);
+  min-height: 1000px;
+  font-family: 'helvetica neue';
+  
+}
+body {
+  overflow: hidden; /* Hide scrollbars */
+  height: 100vh;
+  background-image: url('./images/i3.jpg');
+}
+h1 {
+  color: rgb(253, 247, 247);
+  padding: 10px;
+}
+.box1 {
+  max-width: 500px;
+  margin: 2px auto;
+  background: #27296d;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  /* box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3); */
+  /* background-image: url('/images/i2.png');
+  background-position: center;
+  background-size: 50px;
+  background-repeat: no-repeat; */
+  
+}
+.box {
+ 
+  max-width: 400px;
+  margin: 50px auto;
+  background: #afc5ff;
+  
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: xx-large;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+#heading {
+  background-color: #27296d;
+  text-align: center;
+}
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+.item:last-child {
+  border-bottom: 0;
+}
+input:checked+label{
+  text-decoration: line-through;
+  text-decoration-color: #A683E3;
+  
+}
+input[type="checkbox"] {
+  margin: 20px;
+  /* border-radius: 50%; */
+  visibility: hidden;
+}
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+form {
+  text-align: center;
+  margin-left: 20px;
+}
+button {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #f1d30c;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #0e0e0e;
+}
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: #551A8B;
+}
+.main{
+  
+  background-position: center;
+  background-size: cover;
+}
+        </style>
+        <div class="main">
+    <div class="box1" id="heading">
+        <h1>
+            <%= data1 %> 
+         </h1>
+    </div>
+    <div class="box">
+        
+    <ul>
+        <!-- <li>
+            Cosmetics
+        </li>
+        <li>
+            Electronics
+        </li> -->
+       <% for(var i=0;i<data2.length;i++){%>
+        <div>
+        <hr style="height:1px;border-width:0;color:rgb(124, 120, 120);background-color:rgb(107, 105, 105)"><input type="checkbox" name="ch" id=<%= i+"ch" %> > <label for=<%= i+"ch" %>>⮞ <a href="/delete-task/?data1=<%=data2[i]%>"><%=data2[i] %></a> </label></hr>
+        <!-- <hr> <input type="checkbox" name="ch" id=<%= i+"ch" %> > <label for=<%= i+"ch" %>> <a href="/delete-task/?data1=<%=data2[i]%>"><%=data2[i] %></a> </hr></label> -->
+        </div>
+       <% }%>
+        
+        <form class="item" action="/" method="post">
+            <input type="text" name="n" autocomplete="off" placeholder="New-Item" required>
+            <button type="submit" id="submit" name="submit" value=<%=data1 %>>+</button>
+
+        </form>
+    </ul>
+</div>
+</div>
+    </body>
+
+</html>
